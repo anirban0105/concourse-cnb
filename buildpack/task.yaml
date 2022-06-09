@@ -3,9 +3,9 @@ platform: linux
 
 image_resource:
   type: registry-image
-  source: 
+  source:
     repository: paketobuildpacks/builder
-    tag: 0.1.225-base
+    tag: base
 params:
   APP_IMAGE:
   RUN_IMAGE: "gcr.io/paketo-buildpacks/run:base-cnb"
@@ -16,16 +16,16 @@ params:
   CNB_PLATFORM_API: 0.4
   SKIP_RESTORE: "false"
 caches:
-- path: cache  
+- path: cache
 inputs:
   - name: pipeline
   - name: source
   - name: env
     optional: true
   - name: bindings
-    optional: true    
+    optional: true
 outputs:
-  - name: image  
+  - name: image
 run:
   user: root
-  path: pipeline/buildpack/task.sh  
+  path: pipeline/buildpack/task.sh
